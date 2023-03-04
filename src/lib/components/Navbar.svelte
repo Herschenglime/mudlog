@@ -5,9 +5,11 @@
 </script>
 
 <nav>
-  <LinkCard link="/" background="var(--color-light)" highlightOnHover={false}>
-    <strong>müdlog</strong>
-  </LinkCard>
+  <div>
+    <LinkCard link="/" highlightOnHover={false}>
+      <strong>müdlog</strong>
+    </LinkCard>
+  </div>
   <div>
     <LinkCard link="/about">About</LinkCard>
     <LinkCard link="/calendar-view">Calendar</LinkCard>

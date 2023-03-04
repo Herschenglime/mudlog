@@ -1,28 +1,28 @@
 <script lang="ts">
-
-  export let background = 'var(--color-lighter)';
   export let highlightOnHover = false;
   let hovering = false;
-  export let hoverBackground = "var(--color-lightest)";
+  let held = false;
+  let mousedown = false;
+  export let background = 'blue';
 
+  function enter() {
+    hovering = true;
+  }
 
- function enter() {
-   hovering = true
- }
-
- function leave() {
-   hovering = false
- }
-
+  function leave() {
+    hovering = false;
+  }
 </script>
 
 <div
   class="card"
-  style:background={highlightOnHover ?
-                   (hovering ? hoverBackground : background) :
-                   background}
+  style="--backgroundColor: {background}"
   on:mouseenter={enter}
   on:mouseleave={leave}
+  on:mousedown={() => (mousedown = true)}
+  on:mouseup={() => (mousedown = false)}
+  class:hovering={highlightOnHover && hovering}
+  class:mousedown={hovering && mousedown}
 >
   <slot />
 </div>
@@ -33,7 +33,15 @@
     padding: 5px;
     flex: 1;
     display: inline-flex;
+    background: var(--background-color);
+    transition: transform 0.3s ease;
     /* margin: 5px; */
   }
+  .hovering {
+    background: var(--color-lightest);
+  }
 
+  .mousedown {
+    background: aqua;
+  }
 </style>
