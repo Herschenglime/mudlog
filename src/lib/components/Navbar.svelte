@@ -13,6 +13,7 @@
   <div>
     <LinkCard link="/about">About</LinkCard>
     <LinkCard link="/calendar-view">Calendar</LinkCard>
+    <LinkCard link="/list-view">Entry List</LinkCard>
 
     <Card>
       <div style="display: inline">

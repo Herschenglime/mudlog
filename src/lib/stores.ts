@@ -4,4 +4,4 @@ const theme = writable('system')
 
 export { theme }
 
-export const dailyLogs = writable(new Map())
+export const dailyLogs = writable(new Map<string,string>())
