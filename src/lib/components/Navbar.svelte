@@ -6,7 +6,7 @@
 <nav>
   <Card background="var(--color-light)"><strong>müdlog</strong></Card>
   <div>
-	  <Card>test</Card>
+      <Card>test</Card>
     <Card>
       <div style="display: inline">
         Theme Picker: <ThemeSwitch />
