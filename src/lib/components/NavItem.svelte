@@ -1,13 +1,13 @@
 <script lang="ts">
   export let link = '/';
-  export let highlightOnHover = false;
+  export let highlightOnHover = true;
   let hovering = false;
   let held = false;
   let mousedown = false;
-  export let background = 'blue';
 
   function enter() {
     hovering = true;
+    console.log("hover started")
   }
 
   function leave() {
@@ -17,13 +17,12 @@
 
 <div
   class="nav-item"
-  style="--backgroundColor: {background}"
   on:mouseenter={enter}
   on:mouseleave={leave}
-  on:mousedown={() => (mousedown = true)}
-  on:mouseup={() => (mousedown = false)}
-  class:hovering={highlightOnHover && hovering}
-  class:mousedown={hovering && mousedown}
+  on:mousedown="{() => (mousedown = true)}"
+  on:mouseup="{() => (mousedown = false)}"
+  class:hovering="{highlightOnHover && hovering}"
+  class:mousedown="{hovering && mousedown}"
 >
   <a href={link} style:text-decoration="none" style:color="inherit">
     <slot />
@@ -36,12 +35,11 @@
     padding: 5px;
     flex: 1;
     display: inline-flex;
-    background: var(--background-color);
     transition: transform 0.3s ease;
     /* margin: 5px; */
   }
   .hovering {
-    background: var(--color-lightest);
+    background: black;
   }
 
   .mousedown {
