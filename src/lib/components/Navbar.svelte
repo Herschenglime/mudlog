@@ -5,7 +5,7 @@
 </script>
 
 <nav>
-  <LinkCard link="/" background="var(--color-light)">
+  <LinkCard link="/" background="var(--color-light)" highlightOnHover={false}>
     <strong>müdlog</strong>
   </LinkCard>
   <div>

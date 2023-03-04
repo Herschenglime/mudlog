@@ -3,6 +3,3 @@
 </script>
 <h1>Hallo!</h1>
 
-<Card highlightOnHover={true}>
-  testing
-</Card>
