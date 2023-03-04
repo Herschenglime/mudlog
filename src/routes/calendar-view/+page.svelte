@@ -1,13 +1,19 @@
 <script lang="ts">
   import { InlineCalendar, themes } from 'svelte-calendar';
   const { dark: theme } = themes;
+  let selected:Date;
+
+
 </script>
 
 <body>
   <h1 style:text-align="center">Calendar View</h1>
+
+  <p>Selected: {selected}</p>
+
   <div class="calendar">
     <div class="calendar-inner">
-      <InlineCalendar theme={themes.dark} />
+      <InlineCalendar theme={themes.dark} bind:selected/>
     </div>
   </div>
 </body>

@@ -4,4 +4,6 @@ const theme = writable('system')
 
 export { theme }
 
-export const dailyLogs = writable(new Map<string,string>())
+interface logEntry {title:string, body:string}
+
+export const dailyLogs = writable(new Map<Date,logEntry>())
