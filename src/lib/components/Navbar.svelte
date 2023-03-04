@@ -10,16 +10,17 @@
       <strong>müdlog</strong>
     </NavItem>
   </div>
+
   <div>
     <NavItem link="/about">About</NavItem>
     <NavItem link="/calendar-view">Calendar</NavItem>
     <NavItem link="/list-view">Entry List</NavItem>
 
-    <Card>
-      <div style="display: inline">
-        Theme Picker: <ThemeSwitch />
-      </div>
-    </Card>
+    <div class="divider"/>
+
+    <div style="display: inline">
+      Theme Picker: <ThemeSwitch />
+    </div>
   </div>
 </nav>
 
@@ -32,5 +33,11 @@
     padding: 5px;
     display: flex;
     justify-content: space-between;
+
+    overflow: hidden;
+  }
+  .divider {
+    display: inline-flex;
+    width: 1em;
   }
 </style>
