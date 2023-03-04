@@ -1,9 +1,22 @@
 <script lang="ts">
- import Card from '$lib/components/Card.svelte'
- import ThemeSwitch from '$lib/components/ThemeSwitch.svelte'
+  import Card from '$lib/components/Card.svelte';
+  import ThemeSwitch from '$lib/components/ThemeSwitch.svelte';
 </script>
 
-<Card>
-  Header
-<ThemeSwitch/>
-</Card>
+<nav>
+	<Card background="var(--color-light)"><strong>müdlog</strong></Card>
+  <Card>
+    Theme picker:
+    <ThemeSwitch />
+  </Card>
+</nav>
+
+<style type="text/css" media="screen">
+  nav {
+    border-radius: 10px;
+    background: var(--color-light);
+    padding: 5px;
+	display: flex;
+    justify-content: space-between;
+  }
+</style>
