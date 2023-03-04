@@ -12,6 +12,7 @@
     border-radius: 10px;
     background: var(--color-lighter);
     padding: 5px;
+    flex: 1;
 	  display: inline-flex;
     /* margin: 5px; */
   }
