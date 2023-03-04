@@ -1,19 +1,41 @@
 <script lang="ts">
- export let background = "var(--color-lighter)";
+    import CardGroup from "./CardGroup.svelte";
+
+
+  export let background = 'var(--color-lighter)';
+  export let highlightOnHover = false;
+  let hovering = false;
+
+
+ function enter() {
+   hovering = true
+ }
+
+ function leave() {
+   hovering = false
+ }
+
 </script>
 
-<!-- style:display lets it be passed in -->
-<div class="card" style:background>
+<div
+  class="card"
+  style:background={highlightOnHover ?
+                   (hovering ? "blue" : background) :
+                   background}
+  on:mouseenter={enter}
+  on:mouseleave={leave}
+  class:hovering
+>
   <slot />
 </div>
 
 <style>
   .card {
     border-radius: 10px;
-    background: var(--color-lighter);
     padding: 5px;
     flex: 1;
-	  display: inline-flex;
+    display: inline-flex;
     /* margin: 5px; */
   }
+
 </style>

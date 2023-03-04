@@ -1,17 +1,13 @@
-<h1>Calendar View</h1>
-
-<a href="/about">Check out this cool ass about page</a>
-
 <script>
   import { InlineCalendar, themes } from 'svelte-calendar';
   import { createEventDispatcher } from 'svelte';
-  
+
   const dispatch = createEventDispatcher();
-  
+
   const onDaySelect = (date) => {
     setSelectedDate(date);
   };
-  
+
   /**
      * @type {{ toLocaleDateString: () => void; }}
      */
@@ -20,6 +16,10 @@
     selectedDate = date;
   };
 </script>
+
+<h1>Calendar View</h1>
+
+
 
 <style>
   :global(body) {

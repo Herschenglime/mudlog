@@ -1,17 +1,17 @@
 <script lang="ts">
   import Card from '$lib/components/Card.svelte';
   import ThemeSwitch from '$lib/components/ThemeSwitch.svelte';
+  import LinkCard from './LinkCard.svelte';
 </script>
 
 <nav>
-  <Card background="var(--color-light)"><strong>müdlog</strong></Card>
+  <LinkCard link="/" background="var(--color-light)">
+    <strong>müdlog</strong>
+  </LinkCard>
   <div>
-    <Card>
-      <a href="/about">About</a>
-    </Card>
-    <Card>
-      <a href="/calendar-view">Calendar</a>
-    </Card>
+    <LinkCard link="/about">About</LinkCard>
+    <LinkCard link="/calendar-view">Calendar</LinkCard>
+
     <Card>
       <div style="display: inline">
         Theme Picker: <ThemeSwitch />
