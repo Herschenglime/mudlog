@@ -1,6 +1,6 @@
 <script lang="ts">
  import { theme } from '$lib/stores'
- import ThemeSwitch from '$lib/components/ThemeSwitch.svelte'
+ import Navbar from '$lib/components/Navbar.svelte'
 </script>
 
 <svelte:head>
@@ -8,5 +8,13 @@
   $theme}/> <link rel="stylesheet" href={`/theme/${$theme}.css`} />
 </svelte:head>
 
-<ThemeSwitch/>
+<Navbar></Navbar>
+
 <slot />
+
+<style>
+ :root {
+   /* https://www.w3schools.com/css/css_font.asp */
+   font-family: "sans-serif"
+ }
+</style>

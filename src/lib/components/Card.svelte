@@ -5,10 +5,11 @@
 
 <style>
 .card {
-   border-radius: 10px;
-   background: var(--color-light);
-   padding: 5px;
-   margin: 5px;
+    border-radius: 10px;
+    background: var(--color-light);
+    padding: 5px;
+    display: inline-block;
+  /* margin: 5px; */
 
  }
 </style>
