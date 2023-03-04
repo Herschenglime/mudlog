@@ -1,19 +1,19 @@
 <script lang="ts">
   import Card from '$lib/components/Card.svelte';
   import ThemeSwitch from '$lib/components/ThemeSwitch.svelte';
-  import LinkCard from './LinkCard.svelte';
+  import NavItem from './NavItem.svelte';
 </script>
 
 <nav>
   <div>
-    <LinkCard link="/" highlightOnHover={false}>
+    <NavItem link="/" highlightOnHover={false}>
       <strong>müdlog</strong>
-    </LinkCard>
+    </NavItem>
   </div>
   <div>
-    <LinkCard link="/about">About</LinkCard>
-    <LinkCard link="/calendar-view">Calendar</LinkCard>
-    <LinkCard link="/list-view">Entry List</LinkCard>
+    <NavItem link="/about">About</NavItem>
+    <NavItem link="/calendar-view">Calendar</NavItem>
+    <NavItem link="/list-view">Entry List</NavItem>
 
     <Card>
       <div style="display: inline">
