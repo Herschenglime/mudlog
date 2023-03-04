@@ -26,6 +26,8 @@
 
 <style type="text/css" media="screen">
   nav {
+    width: 95vw;
+    margin: auto;
     border-radius: 10px;
     border-style: solid;
     border-width: thin;
