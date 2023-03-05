@@ -16,6 +16,7 @@
   //   {title: "initial date", body: "test"}
   // )
 
+  let editing = false;
   function createEntry() {
     $dailyLogs = $dailyLogs.set(selected.getDate(), {
       title: 'added entry',
@@ -24,12 +25,12 @@
     });
   }
 
- function selectedDebug() {
-   console.log("debugging selected")
-   console.log($dailyLogs)
-   console.log(selected)
-   console.log($dailyLogs.get(selected))
- }
+  function selectedDebug() {
+    console.log('debugging selected');
+    console.log($dailyLogs);
+    console.log(selected);
+    console.log($dailyLogs.get(selected));
+  }
 </script>
 
 <body>
@@ -41,13 +42,19 @@
   {:else}
     <Card>
       <h2>No entry yet for this day</h2>
-      <button on:click={createEntry}> Create Entry </button>
+
+      {#if !editing}
+        <button on:click="{() => (editing = true)}"> Create Entry </button>
+      {:else}
+        holy smoly you're editing
+        <button on:click="{() => (editing = false)}"> stop that</button>
+      {/if}
     </Card>
   {/if}
 
   <div class="calendar">
-    <div class="calendar-inner" on:click={selectedDebug}>
-      <InlineCalendar theme={calendarTheme} bind:selected/>
+    <div class="calendar-inner">
+      <InlineCalendar theme={calendarTheme} bind:selected />
     </div>
   </div>
 </body>
