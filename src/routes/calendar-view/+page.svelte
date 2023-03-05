@@ -29,19 +29,26 @@
 <body>
   <h1 style:text-align="center">Calendar View</h1>
 
-  <p>Selected: {selected}</p>
+
+
+  <!-- <p>Selected: {selected}</p> -->
+
   {#if $dailyLogs.has(dateString)}
     <JournalEntry entry={$dailyLogs.get(dateString)} />
   {:else}
     <Card>
       {#if !editing}
-        <h2>No entry yet for this day</h2>
-        <button on:click={() => (editing = true)}> Create Entry </button>
+        <h2 class ="center">No entry yet for this day</h2>
+      <div class="center">
+        <button class = "buttons" on:click={() => (editing = true)}> + </button>
+      </div>
       {:else}
         <JournalEntry {entry}/>
         <EntryForm bind:entry on:submit={createEntry} />
 
+
         <button on:click={() => (editing = false)}>Cancel Editing</button>
+
       {/if}
     </Card>
   {/if}
@@ -71,5 +78,28 @@
     background-color: #f8f8f8;
     border-radius: 10px;
     overflow: hidden;
+  }
+  .center{
+    text-align: center;
+    font-family: "Proxima Nova";
+  }
+  .buttons {
+    display: inline-block;
+    opacity: 100;
+    background-color: transparent;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    text-decoration: none;
+    text-align: center;
+    animation: pulse 1s infinite;
+  }
+
+  .buttons:hover {
+    background-color: #005f79;
   }
 </style>
