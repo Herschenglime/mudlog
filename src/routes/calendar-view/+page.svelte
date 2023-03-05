@@ -41,7 +41,7 @@
         <JournalEntry {entry}/>
         <EntryForm bind:entry on:submit={createEntry} />
 
-        <button on:click={() => (editing = false)}> stop that</button>
+        <button on:click={() => (editing = false)}>Cancel Editing</button>
       {/if}
     </Card>
   {/if}
