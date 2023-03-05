@@ -8,15 +8,11 @@
   import { InlineCalendar, themes as calendarThemes } from 'svelte-calendar';
   let selected: Date = new Date(new Date().toDateString());
 
-  let entry:entry = {title:"", body:"", date:selected}
-
-  interface entry {title: string, body: string, date:Date}
-
   import { dailyLogs } from '$lib/stores';
   import { theme as siteTheme } from '$lib/stores';
 
   console.log(get(siteTheme));
-  $: calendarTheme = get(siteTheme) === 'dark' ? calendarThemes.dark : calendarThemes.light;
+  let calendarTheme = get(siteTheme) === 'dark' ? calendarThemes.dark : calendarThemes.light;
 
   // $dailyLogs.set(new Date(new Date().toDateString()),
   //   {title: "initial date", body: "test"}
@@ -31,6 +27,12 @@
     });
   }
 
+  function selectedDebug() {
+    console.log('debugging selected');
+    console.log($dailyLogs);
+    console.log(selected);
+    console.log($dailyLogs.get(selected));
+  }
 </script>
 
 <body>
@@ -38,15 +40,15 @@
 
   <p>Selected: {selected}</p>
   {#if $dailyLogs.has(selected.getDate())}
-    <JournalEntry entry={$dailyLogs.get(selected.getDate())} />
+    <JournalEntry journalEntry={$dailyLogs.get(selected.getDate())} />
   {:else}
     <Card>
       {#if !editing}
       <h2>No entry yet for this day</h2>
         <button on:click={() => (editing = true)}> Create Entry </button>
       {:else}
-        <JournalEntry bind:entry/>
-        <EntryForm bind:entry/>
+
+        <EntryForm/>
         holy smoly you're editing
 
         <button on:click={() => (editing = false)}> stop that</button>
