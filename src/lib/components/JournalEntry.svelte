@@ -4,7 +4,7 @@
 
 <div class="card">
   <h4>{entry.dateString}</h4>
-  <div><p>{entry.body}</p></div>
+  <div><p style:white-space=pre-wrap>{entry.body}</p></div>
   {#if entry.imageID}
   <div>
     <img src="./images/graphs/{entry.imageID}.png" alt={('image with id' + entry.imageID)}/>
