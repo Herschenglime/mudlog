@@ -7,10 +7,10 @@
 
   import { InlineCalendar, themes as calendarThemes } from 'svelte-calendar';
   let selected: Date = new Date(new Date().toDateString());
+  $: dateString = selected.toDateString();
 
-  let entry:entry = {title:"", body:"", date:selected}
-
-  interface entry {title: string, body: string, date:Date}
+  let entry = { title: '', body: '', date: selected, dateString: dateString };
+  $: entry.dateString = dateString;
 
   import { dailyLogs } from '$lib/stores';
   import { theme as siteTheme } from '$lib/stores';
@@ -18,32 +18,28 @@
   console.log(get(siteTheme));
   let calendarTheme = get(siteTheme) === 'dark' ? calendarThemes.dark : calendarThemes.light;
 
-  // $dailyLogs.set(new Date(new Date().toDateString()),
-  //   {title: "initial date", body: "test"}
-  // )
-
   let editing = false;
-  function createEntry() {
-    $dailyLogs = $dailyLogs.set(selected.getDate(), entry);
-  }
 
+  function createEntry() {
+    $dailyLogs = $dailyLogs.set(dateString, entry);
+    editing = false;
+  }
 </script>
 
 <body>
   <h1 style:text-align="center">Calendar View</h1>
 
   <p>Selected: {selected}</p>
-  {#if $dailyLogs.has(selected.getDate())}
-    <JournalEntry entry={$dailyLogs.get(selected.getDate())} />
+  {#if $dailyLogs.has(dateString)}
+    <JournalEntry entry={$dailyLogs.get(dateString)} />
   {:else}
     <Card>
       {#if !editing}
-      <h2>No entry yet for this day</h2>
+        <h2>No entry yet for this day</h2>
         <button on:click={() => (editing = true)}> Create Entry </button>
       {:else}
-        <JournalEntry bind:entry/>
-        <EntryForm bind:entry on:submit={() => {window.alert("omg dispatch working")}}/>
-        holy smoly you're editing
+        <JournalEntry {entry}/>
+        <EntryForm bind:entry on:submit={createEntry} />
 
         <button on:click={() => (editing = false)}> stop that</button>
       {/if}

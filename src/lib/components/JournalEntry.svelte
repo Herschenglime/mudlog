@@ -4,7 +4,7 @@
 </script>
 
 <Card>
+  <h4>{entry.dateString}</h4>
   <h2>{entry.title}</h2>
-  <h3>{entry.date}</h3>
   <p>{entry.body}</p>
 </Card>

@@ -4,17 +4,18 @@
   const dispatch = createEventDispatcher();
 
   import { createForm } from 'svelte-forms-lib';
-  export let entry: entry;
+  export let entry:entry;
 
   $: entry.title = $form.title;
   $: entry.body = $form.body;
+
   const { form, handleChange, handleSubmit } = createForm({
     initialValues: {
       title: '',
       body: ''
     },
     onSubmit: () => {
-      dispatch('submit')
+      dispatch('submit');
     }
   });
 </script>
