@@ -1,32 +1,28 @@
-  <script>
-    import { createForm } from "svelte-forms-lib";
+<script lang="ts">
+  import { createForm } from 'svelte-forms-lib';
+  export let entry: entry;
 
-    const { form, handleChange, handleSubmit } = createForm({
-      initialValues: {
-        title: "",
-        name: ""
-      },
-      onSubmit: values => {
-       alert(JSON.stringify(values));
-      }
-    });
-  </script>
+  const { form, handleChange, handleSubmit } = createForm({
+    initialValues: {
+      title: '',
+      body: ''
+    },
+    onSubmit: (values) => {
+      entry.title = values.title;
+      entry.body = values.body;
+    }
+  });
 
-  <form on:submit={handleSubmit}>
-    <label for="title">Title</label>
-    <input
-      id="title"
-      name="Title"
-      on:change={handleChange}
-      bind:value={$form.title}/>
+  $: entry.title = $form.title;
+  $: entry.body = $form.body;
+</script>
 
-    <label for="name">name</label>
-    <input
-      id="name"
-      name="name"
-      on:change={handleChange}
-      bind:value={$form.name}
-    />
+<form on:submit={handleSubmit}>
+  <label for="title">Title</label>
+  <input id="title" name="title" on:change={handleChange} bind:value={$form.title} />
 
-    <button type="submit">Submit</button>
-  </form>
+  <label for="body">Body</label>
+  <textarea id="body" name="body" on:change={handleChange} bind:value={$form.body} />
+
+  <button type="submit">Submit</button>
+</form>
