@@ -1,21 +1,24 @@
 <script lang="ts">
- import { InlineCalendar, themes } from 'svelte-calendar';
- const { dark: theme } = themes;
- let selected:Date;
+  import { get } from 'svelte/store';
+  import Card from '$lib/components/Card.svelte';
+  import JournalEntry from '$lib/components/JournalEntry.svelte';
 
- import { dailyLogs } from '$lib/stores';
+  import { InlineCalendar, themes as calendarThemes } from 'svelte-calendar';
+  let selected: Date;
 
- // $dailyLogs.set(new Date(new Date().toDateString()),
- //   {title: "initial date", body: "test"}
- // )
+  import { dailyLogs } from '$lib/stores';
+  import { theme as siteTheme } from '$lib/stores';
 
- function createEntry() {
-   $dailyLogs = $dailyLogs.set(selected,
-                  {title: "added entry", body: "hulabaloo"}
-   )
+  console.log(get(siteTheme));
+  let calendarTheme = get(siteTheme) === 'dark' ? calendarThemes.dark : calendarThemes.light;
 
-   window.alert("added entry")
- }
+  // $dailyLogs.set(new Date(new Date().toDateString()),
+  //   {title: "initial date", body: "test"}
+  // )
+
+  function createEntry() {
+    $dailyLogs = $dailyLogs.set(selected, { title: 'added entry', body: 'hulabaloo', date:selected});
+  }
 </script>
 
 <body>
@@ -25,18 +28,17 @@
   <p>Selected: {selected}</p>
 
   {#if $dailyLogs.has(selected)}
-	  has selected!
+    <JournalEntry journalEntry={$dailyLogs.get(selected)}/>
   {:else}
-    doesn't have selected
-    <button on:click={createEntry}>
-      Create Entry
-    </button>
+    <Card>
+      <h2>No entry yet for this day</h2>
+      <button on:click={createEntry}> Create Entry </button>
+    </Card>
   {/if}
-
 
   <div class="calendar">
     <div class="calendar-inner">
-      <InlineCalendar theme={themes.dark} bind:selected/>
+      <InlineCalendar theme={calendarTheme} bind:selected />
     </div>
   </div>
 </body>
