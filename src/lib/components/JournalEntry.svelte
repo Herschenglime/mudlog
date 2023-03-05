@@ -1,9 +1,8 @@
 <script lang="ts">
- import Card from "./Card.svelte";
  export let entry:entry;
 </script>
 
-<Card>
+<div class="card">
   <h4>{entry.dateString}</h4>
   <div><p>{entry.body}</p></div>
   {#if entry.imageID}
@@ -11,12 +10,19 @@
     <img src="./images/graphs/{entry.imageID}.png" alt={('image with id' + entry.imageID)}/>
   </div>
   {/if}
-</Card>
+</div>
 
 
 <style>
-
-
+  .card {
+    border-radius: 10px;
+    padding: 5px;
+    flex: 1;
+    transition: transform 0.3s ease;
+    margin: 5%;
+    background-color: #219edc	;
+    /* margin: 5px; */
+  }
 div {
    word-wrap: break-word;
    width: flex;
