@@ -4,7 +4,7 @@
     const { form, handleChange, handleSubmit } = createForm({
       initialValues: {
         title: "",
-        name: ""
+        body: ""
       },
       onSubmit: values => {
        alert(JSON.stringify(values));
@@ -16,16 +16,16 @@
     <label for="title">Title</label>
     <input
       id="title"
-      name="Title"
+      name="title"
       on:change={handleChange}
       bind:value={$form.title}/>
 
-    <label for="name">name</label>
-    <input
-      id="name"
-      name="name"
+    <label for="body">Body</label>
+    <textarea
+      id="body"
+      name="body"
       on:change={handleChange}
-      bind:value={$form.name}
+      bind:value={$form.body}
     />
 
     <button type="submit">Submit</button>
