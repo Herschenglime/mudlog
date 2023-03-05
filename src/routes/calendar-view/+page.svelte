@@ -1,9 +1,9 @@
 <script lang="ts">
   import { get } from 'svelte/store';
 
-
   import Card from '$lib/components/Card.svelte';
   import JournalEntry from '$lib/components/JournalEntry.svelte';
+  import EntryForm from '$lib/components/EntryForm.svelte';
 
   import { InlineCalendar, themes as calendarThemes } from 'svelte-calendar';
   let selected: Date = new Date(new Date().toDateString());
@@ -43,12 +43,14 @@
     <JournalEntry journalEntry={$dailyLogs.get(selected.getDate())} />
   {:else}
     <Card>
-      <h2>No entry yet for this day</h2>
-
       {#if !editing}
+      <h2>No entry yet for this day</h2>
         <button on:click={() => (editing = true)}> Create Entry </button>
       {:else}
+
+        <EntryForm/>
         holy smoly you're editing
+
         <button on:click={() => (editing = false)}> stop that</button>
       {/if}
     </Card>

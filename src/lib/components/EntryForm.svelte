@@ -4,8 +4,7 @@
     const { form, handleChange, handleSubmit } = createForm({
       initialValues: {
         title: "",
-        name: "",
-        email: ""
+        name: ""
       },
       onSubmit: values => {
        alert(JSON.stringify(values));
@@ -14,17 +13,12 @@
   </script>
 
   <form on:submit={handleSubmit}>
-    <label for="title">title</label>
-    <select
+    <label for="title">Title</label>
+    <input
       id="title"
-      name="title"
+      name="Title"
       on:change={handleChange}
-      bind:value={$form.title}>
-      <option></option>
-      <option>Mr.</option>
-      <option>Mrs.</option>
-      <option>Mx.</option>
-    </select>
+      bind:value={$form.title}/>
 
     <label for="name">name</label>
     <input
@@ -32,14 +26,6 @@
       name="name"
       on:change={handleChange}
       bind:value={$form.name}
-    />
-
-    <label for="email">email</label>
-    <input
-      id="email"
-      name="email"
-      on:change={handleChange}
-      bind:value={$form.email}
     />
 
     <button type="submit">Submit</button>
