@@ -9,6 +9,13 @@
  //   {title: "initial date", body: "test"}
  // )
 
+ function createEntry() {
+   $dailyLogs = $dailyLogs.set(selected,
+                  {title: "added entry", body: "hulabaloo"}
+   )
+
+   window.alert("added entry")
+ }
 </script>
 
 <body>
@@ -21,6 +28,9 @@
 	  has selected!
   {:else}
     doesn't have selected
+    <button on:click={createEntry}>
+      Create Entry
+    </button>
   {/if}
 
 
