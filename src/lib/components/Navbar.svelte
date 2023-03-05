@@ -7,7 +7,7 @@
 <nav>
   <div>
     <NavItem link="/" highlightOnHover={false}>
-      <strong>müdlog</strong>
+      <strong style:color=#72d3fe>müdlog</strong>
     </NavItem>
   </div>
 
@@ -19,7 +19,7 @@
     <div class="divider"/>
 
     <div style="display: inline">
-      Theme Picker: <ThemeSwitch />
+      Theme: <ThemeSwitch />
     </div>
   </div>
 </nav>
@@ -29,9 +29,9 @@
     width: 95vw;
     margin: auto;
     border-radius: 10px;
-    border-style: solid;
+    border-style: clear;
     border-width: thin;
-    background: var(--color-light);
+    
     padding: 5px;
     display: flex;
     justify-content: space-between;

@@ -15,6 +15,6 @@
 <style>
  :root {
    /* https://www.w3schools.com/css/css_font.asp */
-   font-family: "sans-serif"
+   font-family: "Proxima Nova"
  }
 </style>
