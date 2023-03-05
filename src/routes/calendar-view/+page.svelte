@@ -29,7 +29,10 @@
 <body>
   <h1 style:text-align="center">Calendar View</h1>
 
+
+
   <!-- <p>Selected: {selected}</p> -->
+
   {#if $dailyLogs.has(dateString)}
     <JournalEntry entry={$dailyLogs.get(dateString)} />
   {:else}
@@ -43,7 +46,9 @@
         <JournalEntry {entry}/>
         <EntryForm bind:entry on:submit={createEntry} />
 
-        <button on:click={() => (editing = false)}> Cancel Editing</button>
+
+        <button on:click={() => (editing = false)}>Cancel Editing</button>
+
       {/if}
     </Card>
   {/if}
