@@ -1,15 +1,28 @@
 <script lang="ts">
-  import { InlineCalendar, themes } from 'svelte-calendar';
-  const { dark: theme } = themes;
-  let selected:Date;
+ import { InlineCalendar, themes } from 'svelte-calendar';
+ const { dark: theme } = themes;
+ let selected:Date;
 
+ import { dailyLogs } from '$lib/stores';
+
+ // $dailyLogs.set(new Date(new Date().toDateString()),
+ //   {title: "initial date", body: "test"}
+ // )
 
 </script>
 
 <body>
   <h1 style:text-align="center">Calendar View</h1>
+  daily logs: {[...$dailyLogs]}
 
   <p>Selected: {selected}</p>
+
+  {#if $dailyLogs.has(selected)}
+	  has selected!
+  {:else}
+    doesn't have selected
+  {/if}
+
 
   <div class="calendar">
     <div class="calendar-inner">

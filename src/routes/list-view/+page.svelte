@@ -1,14 +1,14 @@
 <script lang="ts">
   import { get } from 'svelte/store';
-  import { dailyLogs } from '$lib/stores';
   import Card from '$lib/components/Card.svelte';
 
+  import { dailyLogs } from '$lib/stores';
   const logs = $dailyLogs;
 
- logs.set(new Date(), {title: "slay day", body: "today was so slay"})
 </script>
 
 <h1>List View</h1>
+  daily logs: {[...$dailyLogs]}
 
 {#each [...logs] as [day, entry]}
   <Card>
