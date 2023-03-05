@@ -28,11 +28,11 @@
 
   //getting in the example data
   import entryValues from '$lib/data/entries.json';
-  for (let mockEntry of entryValues) {
-    $dailyLogs.set(mockEntry.title, {dateString: mockEntry.title, body: mockEntry.body})
+  entryValues.forEach((mockEntry, index) => {
+    $dailyLogs.set(mockEntry.title, {dateString: mockEntry.title, body: mockEntry.body, imageID:(index+1)})
     console.log(mockEntry)
     console.log($dailyLogs.get(mockEntry.title))
-  }
+  })
  $dailyLogs = $dailyLogs;
 
 </script>
