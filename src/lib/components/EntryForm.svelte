@@ -6,12 +6,12 @@
   import { createForm } from 'svelte-forms-lib';
   export let entry:entry;
 
-  $: entry.title = $form.title;
+ // $: entry.title = $form.title;
   $: entry.body = $form.body;
 
   const { form, handleChange, handleSubmit } = createForm({
     initialValues: {
-      title: '',
+      // title: '',
       body: ''
     },
     onSubmit: () => {
@@ -75,9 +75,9 @@
 </style>
 
 <form on:submit={handleSubmit}>
-  <label for="title">Title</label>
-  <input id="title" name="title" on:change={handleChange} bind:value={$form.title} />
-
+  <!-- <label for="title">Title</label>
+       <input id="title" name="title" on:change={handleChange} bind:value={$form.title} />
+  -->
   <label for="body">Body</label>
   <textarea id="body" name="body" on:change={handleChange} bind:value={$form.body} />
 

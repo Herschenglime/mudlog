@@ -5,7 +5,7 @@
 
 <Card>
   <h4>{entry.dateString}</h4>
-  <h2>{entry.title}</h2>
+  <!-- <h2>{entry.title}</h2> -->
   <div><p>{entry.body}</p></div>
 </Card>
 
