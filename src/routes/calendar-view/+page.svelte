@@ -24,11 +24,7 @@
 
   let editing = false;
   function createEntry() {
-    $dailyLogs = $dailyLogs.set(selected.getDate(), {
-      title: 'added entry',
-      body: 'hulabaloo',
-      date: selected
-    });
+    $dailyLogs = $dailyLogs.set(selected.getDate(), entry);
   }
 
 </script>
@@ -46,7 +42,7 @@
         <button on:click={() => (editing = true)}> Create Entry </button>
       {:else}
         <JournalEntry bind:entry/>
-        <EntryForm bind:entry/>
+        <EntryForm bind:entry on:submit={() => {window.alert("omg dispatch working")}}/>
         holy smoly you're editing
 
         <button on:click={() => (editing = false)}> stop that</button>
