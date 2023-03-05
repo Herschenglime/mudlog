@@ -17,3 +17,11 @@
   
   >Dark</option>
 </select>
+
+<style>
+select{
+  border-radius: 5px;
+
+}
+
+</style>

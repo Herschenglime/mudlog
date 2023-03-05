@@ -12,7 +12,7 @@
   import { theme as siteTheme } from '$lib/stores';
 
   console.log(get(siteTheme));
-  let calendarTheme = get(siteTheme) === 'dark' ? calendarThemes.dark : calendarThemes.light;
+  $: calendarTheme = get(siteTheme) === 'dark' ? calendarThemes.dark : calendarThemes.light;
 
   // $dailyLogs.set(new Date(new Date().toDateString()),
   //   {title: "initial date", body: "test"}
