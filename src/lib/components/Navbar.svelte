@@ -7,6 +7,7 @@
 <nav>
   <div>
     <NavItem link="/" highlightOnHover={false}>
+      <img class = 'image' alt="logo" src=/images/logo2.png>
       <strong style:color=#72d3fe>müdlog</strong>
     </NavItem>
   </div>
@@ -42,4 +43,11 @@
     display: inline-flex;
     width: 1em;
   }
+  .image{
+    display:inline-flex;
+    max-width: 30px;
+    max-height: 30px;
+  }
+
+  
 </style>
