@@ -4,6 +4,7 @@
   let hovering = false;
   let held = false;
   let mousedown = false;
+  let theme = false;
 
   function enter() {
     hovering = true;
@@ -25,7 +26,7 @@
   class:mousedown="{hovering && mousedown}"
 >
   <a href={link} style:text-decoration="none" style:color="inherit">
-    <slot />
+    <slot/>
   </a>
 </div>
 
@@ -39,10 +40,13 @@
     /* margin: 5px; */
   }
   .hovering {
-    background: black;
+    color: #0087ca;
+    text-decoration: underline;
   }
+  
 
   .mousedown {
-    background: aqua;
+    opacity: 35%;
+    color: #219edc;
   }
 </style>
