@@ -1,5 +1,6 @@
-  <script>
+  <script lang="ts">
     import { createForm } from "svelte-forms-lib";
+    export let entry:entry;
 
     const { form, handleChange, handleSubmit } = createForm({
       initialValues: {
@@ -7,9 +8,12 @@
         body: ""
       },
       onSubmit: values => {
-       alert(JSON.stringify(values));
+       entry.title = values.title;
+       entry.body = values.body;
       }
     });
+
+   $: entry = {title: $form.title, body: $form.body}
   </script>
 
   <form on:submit={handleSubmit}>

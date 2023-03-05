@@ -1,10 +1,10 @@
 <script lang="ts">
  import Card from "./Card.svelte";
- export let journalEntry:journalEntry;
+ export let entry:entry;
 </script>
 
 <Card>
-  <h2>{journalEntry.title}</h2>
-  <h3>{journalEntry.date}</h3>
-  <p>{journalEntry.body}</p>
+  <h2>{entry.title}</h2>
+  <h3>{entry.date}</h3>
+  <p>{entry.body}</p>
 </Card>
