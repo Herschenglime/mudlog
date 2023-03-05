@@ -4,7 +4,7 @@
   import JournalEntry from '$lib/components/JournalEntry.svelte';
 
   import { InlineCalendar, themes as calendarThemes } from 'svelte-calendar';
-  let selected: Date;
+  let selected: Date = new Date(new Date().toDateString());
 
   import { dailyLogs } from '$lib/stores';
   import { theme as siteTheme } from '$lib/stores';
@@ -17,18 +17,27 @@
   // )
 
   function createEntry() {
-    $dailyLogs = $dailyLogs.set(selected, { title: 'added entry', body: 'hulabaloo', date:selected});
+    $dailyLogs = $dailyLogs.set(selected.getDate(), {
+      title: 'added entry',
+      body: 'hulabaloo',
+      date: selected
+    });
   }
+
+ function selectedDebug() {
+   console.log("debugging selected")
+   console.log($dailyLogs)
+   console.log(selected)
+   console.log($dailyLogs.get(selected))
+ }
 </script>
 
 <body>
   <h1 style:text-align="center">Calendar View</h1>
-  daily logs: {[...$dailyLogs]}
 
   <p>Selected: {selected}</p>
-
-  {#if $dailyLogs.has(selected)}
-    <JournalEntry journalEntry={$dailyLogs.get(selected)}/>
+  {#if $dailyLogs.has(selected.getDate())}
+    <JournalEntry journalEntry={$dailyLogs.get(selected.getDate())} />
   {:else}
     <Card>
       <h2>No entry yet for this day</h2>
@@ -37,8 +46,8 @@
   {/if}
 
   <div class="calendar">
-    <div class="calendar-inner">
-      <InlineCalendar theme={calendarTheme} bind:selected />
+    <div class="calendar-inner" on:click={selectedDebug}>
+      <InlineCalendar theme={calendarTheme} bind:selected/>
     </div>
   </div>
 </body>

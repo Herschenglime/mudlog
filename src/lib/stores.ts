@@ -6,4 +6,4 @@ export { theme }
 
 interface logEntry {title:string, body:string, date:Date}
 
-export const dailyLogs = writable(new Map<Date,logEntry>())
+export const dailyLogs = writable(new Map<number,logEntry>())
