@@ -27,4 +27,16 @@ div {
    word-wrap: break-word;
    width: flex;
 }
+
+img{
+  /* max-width: fit-content; */
+  max-width: 100%;
+  height: auto;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+  
+}
 </style>
