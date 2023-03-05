@@ -16,7 +16,7 @@ specifiers:
   svelte: ^3.54.0
   svelte-calendar: ^3.1.6
   svelte-check: ^3.0.1
-  svelte-formula: ^0.12.0
+  svelte-forms-lib: ^2.0.1
   svelte-fullcalendar: ^2.0.0-beta.0
   tslib: ^2.4.1
   typescript: ^4.9.3
@@ -39,7 +39,7 @@ devDependencies:
   svelte: 3.55.1
   svelte-calendar: 3.1.6
   svelte-check: 3.0.4_svelte@3.55.1
-  svelte-formula: 0.12.0_svelte@3.55.1
+  svelte-forms-lib: 2.0.1
   svelte-fullcalendar: 2.0.0-beta.0_dx74ev7kry6cmc77fxutfw573a
   tslib: 2.5.0
   typescript: 4.9.5
@@ -783,6 +783,11 @@ packages:
   /deepmerge/4.3.0:
     resolution: {integrity: sha512-z2wJZXrmeHdvYJp/Ux55wIjqo81G5Bp4c+oELTW+7ar6SogWHajt5a9gO3s3IDaGSAXjDk0vlQKN3rms8ab3og==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /dequal/2.0.3:
+    resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
+    engines: {node: '>=6'}
     dev: true
 
   /detect-indent/6.1.0:
@@ -1728,12 +1733,10 @@ packages:
       - sugarss
     dev: true
 
-  /svelte-formula/0.12.0_svelte@3.55.1:
-    resolution: {integrity: sha512-NpfnQiEbhdNy3XqARsUe0r2rs1DKb9yTpFvqHjIqN8VmsBSr7Yz4cjqGqy/ZBNd1WlLcwinhDLRFr811o+h+Hw==}
-    peerDependencies:
-      svelte: '>=3.0.0'
+  /svelte-forms-lib/2.0.1:
+    resolution: {integrity: sha512-kwbJ3ynsepsrrJyAMrvSc0Lj/myc9vfI2DL8OKxgArZimrNYsRh1gENYhvrcKEI3BiZrv8q3VFfmGo/GMyk7Zg==}
     dependencies:
-      svelte: 3.55.1
+      dequal: 2.0.3
     dev: true
 
   /svelte-fullcalendar/2.0.0-beta.0_dx74ev7kry6cmc77fxutfw573a:

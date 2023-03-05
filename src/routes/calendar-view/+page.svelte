@@ -1,13 +1,6 @@
 <script lang="ts">
   import { get } from 'svelte/store';
 
-  //form stuff
-  import { formula } from 'svelte-formula';
-  const { form, formIsValid, validity, touched } = formula();
-
-  export let title = '';
-  // You can calculate values for valid UI states
-  $: titleInvalid = $touched?.title && validity?.title?.invalid;
 
   import Card from '$lib/components/Card.svelte';
   import JournalEntry from '$lib/components/JournalEntry.svelte';
@@ -56,12 +49,6 @@
         <button on:click={() => (editing = true)}> Create Entry </button>
       {:else}
         holy smoly you're editing
-        <div use:form>
-          <label for="title">Entry Title</label>
-          <input type="text" name="title" required minlength="1" class:error={titleInvalid} bind:value={title} />
-          <span hidden={!titleInvalid}>{validity?.title?.message}</span>
-          <button disabled={!$formIsValid}>Update Title</button>
-        </div>
         <button on:click={() => (editing = false)}> stop that</button>
       {/if}
     </Card>
